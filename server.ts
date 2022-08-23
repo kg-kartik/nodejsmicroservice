@@ -7,15 +7,13 @@ app.use(bodyParser.json());
 
 dotenv.config();
 
-const PORTNUMBER: number = parseInt(process.env.PORT);
+const PORTNUMBER: number = parseInt(process.argv[2]) || 3000;
 
 app.get('/', (req, res) => {
   res.status(200).json({
     PORTNUMBER,
   });
 });
-
-console.log('lol');
 
 app.listen(PORTNUMBER, (): void => {
   `Server is running on ${PORTNUMBER}`;
